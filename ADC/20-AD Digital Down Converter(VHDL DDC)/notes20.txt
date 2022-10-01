@@ -1,0 +1,14 @@
+
+Sinüs örnekleri coe dosyası olarak logic memory'e kaydedildi. 
+Counter bu hafızayı sürerek bir sonraki örneğin SPI üzerinden DAC'ye yollanmasını sağlar. 
+Örnekleme periyodu 1us
+100sample=100us, sinyal frekansı 10kHz
+
+sinyal frekansını değiştirmek için;
+1)Tam dalga periyodu 100 yerine daha farklı sayıda örnek ile ifade edilebilir.
+2)DA güncelleme sıklığı(SPI clock frekansı) 1us yerine daha farklı verilebilir.
+
+Örneğin;
+1)250sample=250us, sinyal frekansı 4kHz olur. 
+2)örnekleme periyodu 10us, 100sample=1ms, sinyal frekansı 1kHz olur. 
+

@@ -1,0 +1,15 @@
+
+Kullanılan Cordic algoritması ve x,y,z nin başlangıç değerleri değişmeyecektir. 
+Hesaplanmak istenen sinüs değerlerinin hesaplaması değişecektir.
+Örneğin düşük frekanslı bir sinüs daha küçük adımla hesaplanırsa ve 1 periyot daha az veri ile hesaplanmış olacaktır. 
+
+chirp sinyali için
+-pi/2 to pi/2 aralığı sırasıyla
+
+pi/10 adım büyüklüğünde 20 adımda
+pi/20 adım büyüklüğünde 40 adımda ..
+pi/100 adım büyüklüğünde 200 adımda taranarak 10 farklı frekanslı sinüs ardışık olarak elde edilmiştir. 
+Her sinüs 1 periyot büyüklüğündedir. 
+
+
+

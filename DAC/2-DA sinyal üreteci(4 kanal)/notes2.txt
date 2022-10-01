@@ -1,0 +1,31 @@
+
+Sinüs örnekleri coe dosyası olarak 4 farklı logic memory'e kaydedildi. 
+Counter bu hafızayı sürerek bir sonraki örneğin SPI üzerinden DAC'ye yollanmasını sağlar. 
+Örnekleme periyodu 1us
+500sample=500us
+
+Bu örnekte farklı olarak, sinüs sinyali coe dosyasına yazılırken;
+1. işaret 2 
+2. işaret 5
+3. işaret 12
+4. işaret 25 periyodluk bir sinüs barındıracak şekilde yazıldı. 
+
+Bu sebeple eğer tek kanal kullanılsaydı;
+1. işaret 4kHz
+2. işaret 10kHz
+3. işaret 24kHz
+4. işaret 50kHz frekanslı olacaktı.
+
+Dijital veri DAC'a yazılırken her kanal için sırayla yazılmaktadır. 
+Örneğin 1. kanal için her 4 sample'dan biri 1.kanalı güncellemktedir. 
+Yani gerçek frekanslar yukarıda yazanların 1/4 ü olacaktır.
+Aslında 4 kanal halinde örnekleme frekansı 250kHz dir. 
+
+Ayrıca,
+her sinyal arasında 1us faz farkı var. Eş frekanslı sinüsler yüklenecek olsa bile,
+osiloskop ile bakıldığında üst üste binmediği az miktarda faz farkı olduğu görülecektir. 
+
+
+IP ayarları
+Clock:40MHz
+Dist. memory length: 512

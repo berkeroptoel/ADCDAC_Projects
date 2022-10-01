@@ -1,0 +1,23 @@
+
+Sinüs örnekleri 100 byte olarak Zynq den gelen komutla DMA in RAM den okumasıyla Logic taraftaki Hafızaya yazılır. 
+Yazılırken Counter IP si kullanıldı. 
+Başka bir blok bu hafızayı döngü içinde okuyup SPI master bloğuna gönderir. 
+
+Örnekleme periyodu 1us
+100sample=100us, sinyal frekansı 10kHz
+
+sinyal frekansını değiştirmek için;
+1)Tam dalga periyodu 100 yerine daha farklı sayıda örnek ile ifade edilebilir.
+2)DA güncelleme sıklığı(SPI clock frekansı) 1us yerine daha farklı verilebilir.
+
+Örneğin;
+1)250sample=250us, sinyal frekansı 4kHz olur. 
+2)örnekleme periyodu 10us, 100sample=1ms, sinyal frekansı 1kHz olur. 
+
+Zynq7 Processing System - AXI DMA ekleme işlemlerinin anlatımı
+**Add IP --> ZYNQ7 Processing System 
+**IP geldikten sonra üst yeşil barda yazan "Run Block Automation" seçeneğini tıklayın.
+**Add IP --> AXI Direct Memory Access
+**IP geldikten sonra üst yeşil barda yazan "Run Connection Automation" seçeneğini tıklayın.
+Artık IP Core'ların normal ayarlarını indirdiğiniz proje dosyasına ekli olan ekran görüntülerinden yapabilirsiniz.
+IP Core'ların ayarlarını yaparken üst yeşil barda "Run Block Automation" seçeneği geldiğinde otomatik olarak bağlantılarınızı güncelleyin.

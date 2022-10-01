@@ -1,0 +1,19 @@
+
+DDS IP clock frekansı 40MHz, sinyal frekansı 1MHz olarak girildi. 
+Gerçek sinyal 1Msps ile örneklendiğinden sinyal frekansı 25kHz olacaktır. 
+
+DDS IP nin sürekli valid data vermesini engellemek için tready ile back-pressure uygulanmıştır. 
+her 40 saykılda 1 tready=1 yapılmıştır. 
+
+DDS IP çıkış tipi fix(1,8,7) olduğundan [-1,1) arasında çıkış vermektedir. 
+Bu değer önce 128 ile çarpıp -128,128 arasına sonra 128 ile toplayıp 0-256 arasına getirilmiştir. 
+8 bit aralık dışı olmasın diye 255.9 gibi sayılar uint8 kullanılarak 255'e yuvarlanmıştır. 
+
+
+IP ayarları
+Clock:40MHz
+DDS clock: 1MHz
+
+
+
+

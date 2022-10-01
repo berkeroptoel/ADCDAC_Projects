@@ -1,0 +1,68 @@
+
+I=[-1,-1,-1,-1,1,1,1,-1];
+Q=[-1,-1,1,1,-1,1,-1,-1];
+
+f1= 1e6;
+bp = 1e-6;
+sp = 2*bp;
+sp_interval = sp/100;
+%t1=sp/100:sp/100:sp;
+t1=0:sp_interval:(sp_interval*100)-sp_interval;
+
+
+S1=[];
+S2=[];
+%vivado cordic sinyallleri -pi/2 den baþlayýp devam ettiði için -pi/2 faz
+%kaymasý verildi.
+%normalde sin,cos sinyalleri 0 derecede baþlar 
+for i=1:8
+S1 = [S1 I(i)*cos(2*pi*f1*t1 - pi/2)];
+S2 = [S2 Q(i)*sin(2*pi*f1*t1 - pi/2)];
+end
+S=S1+S2;
+
+r1=[]
+r2=[]
+for i=1:8
+r1= [r1 cos(2*pi*f1*t1)];
+r2= [r2 sin(2*pi*f1*t1)];
+end
+
+D1=r1.*S;
+D2=r2.*S;
+
+for i=1:8
+D1s(i) = mean(D1(:,(i*100)-99:100*i));
+D2s(i) = mean(D2(:,(i*100)-99:100*i));
+end
+
+L = 800;
+Y = fft(D1);
+P2 = abs(Y/L);
+P1 = P2(1:L/2+1);
+P1(2:end-1) = 2*P1(2:end-1);
+
+f = 50e6*(0:(L/2))/L;
+plot(f,P1) 
+title('Single-Sided Amplitude Spectrum of X(t)')
+xlabel('f (Hz)')
+ylabel('|P1(f)|')
+
+
+%% Filter
+
+% Design filter with least-squares method
+N     = 100;           % Order
+Fpass = 100;          % Passband Frequency
+Fstop = 2*1e6 - 100;  % Stopband Frequency
+Wpass = 1;            % Passband Weight
+Wstop = 1;            % Stopband Weight
+
+% Calculate the coefficients using the FIRLS function.
+b  = firls(N, [0 Fpass Fstop 100e6/2]/(100e6/2), [1 1 0 0], [Wpass Wstop]);
+
+% Filtering
+w_I = filter(b, 1, D1);
+w_Q = filter(b, 1, D2);
+
+

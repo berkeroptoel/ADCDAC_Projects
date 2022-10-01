@@ -1,0 +1,25 @@
+
+QAM4 ile modüle edilmek istenin mesaj: 1101100111011010
+symbolic form gösterimi
+11 -> 3 -> 1.0-1.0i 
+01 -> 1 -> -1.0-1.0i
+10 -> 2 -> 1.0+1.0i
+01 -> 1 -> -1.0-1.0i
+11 -> 3 -> 1.0-1.0i
+01 -> 1 -> -1.0-1.0i
+10 -> 2 -> 1.0+1.0i
+10 -> 2 -> 1.0+1.0i
+
+I katsayıları :  1 -1 1 -1 1 -1 1 1
+Q katsayıları : -1 -1 1 -1 -1 -1 1 1
+bit period:     
+symbol period:
+taşıyıcı frekansı:
+
+I katsayları x cosinüs sinyalinin
+Q katsayları x sinüs sinyali ile toplanmasıyla IQ modulated sinyal elde edilir. 
+
+
+
+
+

@@ -1,0 +1,18 @@
+
+Cordic sine-cos algoritması: LUT veya çarpma operatörü kullanmadan sine-cos hesaplar. 
+https://www.mathworks.com/help/fixedpoint/ug/compute-sine-and-cosine-using-cordic-rotation-kernel.html
+
+Cordic girişi (-pi/2,pi/2) olmalı. 
+x0 değeri 1/kazanç
+y0 değeri 0 
+z0 değeri sinüsü istenen açı değeri olmalı
+
+İterasyon sonucunda x cosinüs'e y sinüs'e yakınsamaktadır. 
+
+1 periyot sinüs için -pi/2 den pi/2 ye 50,100,200 gibi adımla gidilir. 
+1 periyot cos için -pi/2 den pi/2 ye gidince cos 1 ve 4. bölgelerde pozitif olduğundan ilave bir bölge düzeltmesi yapılmalıdır. 
+
+
+DAC SPI bloğu kanal giriş sabiti 0 verildi.
+
+
